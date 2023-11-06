@@ -1,0 +1,26 @@
+{
+  "name": "noshhouse",
+  "version": "1.0.0",
+  "description": "Nosh House STL website npm packages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "css-loader": "^6.8.1",
+    "esm": "^3.2.25",
+    "html-webpack-plugin": "^5.5.3",
+    "jquery": "^3.5.0",
+    "nodejs": "^0.0.0",
+    "style-loader": "^3.3.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "webpack": "^5.89.0"
+  }
+}
