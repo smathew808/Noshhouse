@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoshhouseBlazor", "NoshhouseBlazor\NoshhouseBlazor\NoshhouseBlazor.csproj", "{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoshhouseBlazor.Client", "NoshhouseBlazor\NoshhouseBlazor.Client\NoshhouseBlazor.Client.csproj", "{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A17C9C1-2DB0-432B-94B5-4689818F13CE}
+	EndGlobalSection
+EndGlobal
