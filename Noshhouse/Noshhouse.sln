@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoshhouseBlazor", "NoshhouseBlazor\NoshhouseBlazor\NoshhouseBlazor.csproj", "{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoshhouseBlazor", "NoshhouseBlazor\NoshhouseBlazor\NoshhouseBlazor.csproj", "{C9F61943-16CD-4C1F-93F0-D43078F3CDCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoshhouseBlazor.Client", "NoshhouseBlazor\NoshhouseBlazor.Client\NoshhouseBlazor.Client.csproj", "{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoshhouseBlazor.Client", "NoshhouseBlazor\NoshhouseBlazor.Client\NoshhouseBlazor.Client.csproj", "{86B54C0C-DEA1-4EE9-9142-C1820A5772B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
