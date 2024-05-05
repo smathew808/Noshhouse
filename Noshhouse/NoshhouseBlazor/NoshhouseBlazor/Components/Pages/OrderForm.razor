@@ -1,0 +1,20 @@
+﻿@page "/order"
+@rendermode InteractiveServer
+
+<h3>Place an Order</h3>
+
+<EditForm Model="@order">
+    <label for="firstname">First Name</label>
+    <InputText id="firstname" @bind-Value="@order.FirstName"></InputText>
+
+    <label for="lastname">Last Name</label>
+    <InputText id="lastname" @bind-Value="@order.LastName"></InputText>
+
+    <label for="email">Email</label>
+    <InputText id="email" @bind-Value="@order.Email"></InputText>
+
+    <label for="order-desc">Order Description</label>
+    <InputTextArea id="oder-desc" @bind-Value="@order.OrderDescription"></InputTextArea>
+</EditForm>
+
+
