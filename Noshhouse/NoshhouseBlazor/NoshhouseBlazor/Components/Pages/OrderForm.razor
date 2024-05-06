@@ -3,18 +3,31 @@
 
 <h3>Place an Order</h3>
 
-<EditForm Model="@order">
-    <label for="firstname">First Name</label>
-    <InputText id="firstname" @bind-Value="@order.FirstName"></InputText>
+<EditForm Model=@order OnValidSubmit=@SubmitForm>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <InputText id="firstname" class="form-control" @bind-Value=@firstName placeholder="First Name"></InputText>
+    </div>
+    
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <InputText id="lastname" class="form-control" @bind-Value=@lastName placeholder="Last Name"></InputText>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value=@email placeholder="Email"></InputText>
+    </div>
 
-    <label for="lastname">Last Name</label>
-    <InputText id="lastname" @bind-Value="@order.LastName"></InputText>
+    <div class="form-group">
+        <label for="order-desc">Order Description</label>
+        <InputTextArea id="order-desc" class="form-control" @bind-Value=@orderDesc placeholder="Enter details here..."></InputTextArea>
+    </div>
+    
+    <input type="submit" value="Submit" class="btn btn-primary form-buttons" @onclick=@SubmitForm>Submit</input>
 
-    <label for="email">Email</label>
-    <InputText id="email" @bind-Value="@order.Email"></InputText>
-
-    <label for="order-desc">Order Description</label>
-    <InputTextArea id="oder-desc" @bind-Value="@order.OrderDescription"></InputTextArea>
+    <p class="mx-auto">@FormSubmittedText</p>
+    
 </EditForm>
 
 

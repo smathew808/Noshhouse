@@ -2,8 +2,20 @@
 
 namespace NoshhouseBlazor.Components.Pages
 {
-    partial class OrderForm
+    public partial class OrderForm
     {
-        Order order = new Order();
+        private string FormSubmittedText = string.Empty;
+
+        Order order = new();
+        private string firstName = string.Empty;
+        private string lastName = string.Empty;
+        private string email = string.Empty;
+        private string orderDesc = string.Empty;
+
+        void SubmitForm()
+        {
+            FormSubmittedText = $"{firstName}, {lastName}, {email}, {orderDesc}";
+        }
     }
+
 }
