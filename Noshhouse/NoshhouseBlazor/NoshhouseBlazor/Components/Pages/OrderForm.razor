@@ -24,9 +24,9 @@
         <InputTextArea id="order-desc" class="form-control" @bind-Value=@orderDesc placeholder="Enter details here..."></InputTextArea>
     </div>
     
-    <input type="submit" value="Submit" class="btn btn-primary form-buttons" @onclick=@SubmitForm>Submit</input>
+    <input type="submit" value="Submit" class="btn btn-primary form-buttons" @onclick=@SendEmail>Submit</input>
 
-    <p class="mx-auto">@FormSubmittedText</p>
+    @* <p class="mx-auto">@FormSubmittedText</p> *@
     
 </EditForm>
 
