@@ -7,9 +7,9 @@ namespace NoshhouseBlazor.Components.Pages
     public partial class OrderForm
     {
         private string FormSubmittedText = string.Empty;
-        private string SenderEmail = "ryan.hane@ethereal.email";
+        private string SenderEmail = "petemonsterosrs@gmail.com";
         private string SenderPassword = string.Empty;
-        private string RecipientEmail = "ryan.hane@ethereal.email";
+        private string RecipientEmail = "petemonsterosrs@gmail.com";
         
 
         Order order = new();
@@ -35,7 +35,7 @@ namespace NoshhouseBlazor.Components.Pages
                     mail.Body = "<h2>Testing again</h2>";
                     mail.IsBodyHtml = true;
 
-                    using (SmtpClient smtp = new SmtpClient("smtp.ethereal.email", 587))
+                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                     {
                         smtp.Credentials = new NetworkCredential(SenderEmail, SenderPassword);
                         smtp.EnableSsl = true;
