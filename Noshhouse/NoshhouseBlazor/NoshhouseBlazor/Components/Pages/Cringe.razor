@@ -1,27 +1,20 @@
 ﻿@page "/cringe"
 @rendermode InteractiveServer
 
-<h3>Cringe</h3>
-
-<label for="fname">Enter a string to reverse: </label>
-<InputText @bind-Value="@stringToReverse"></InputText>
-<br>
-<br>
-<button type="submit" @onclick="ActivateCringe">Activate Cringe</button>
-
-<p>@newString</p>
+<h3>Hello, @handler!</h3>
 
 @code {
+    string handler;
 
-    public string newString = "";
-
-    string stringToReverse = "";
-
-    public void ActivateCringe()
+    protected override void OnInitialized()
     {
-        var charArray = stringToReverse.ToCharArray();
-        Array.Reverse(charArray);
-
-        newString = new string(charArray);
+        if (OperatingSystem.IsBrowser())
+        {
+            handler = "WASM";
+        }
+        else
+        {
+            handler = "Server";
+        }
     }
 }
