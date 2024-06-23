@@ -1,17 +1,10 @@
-﻿using NoshhouseBlazor.Models;
-using System.Net;
-using System.Net.Mail;
+﻿using NoshhouseBlazor.Helpers;
+using NoshhouseBlazor.Models;
 
 namespace NoshhouseBlazor.Components.Pages
 {
     public partial class OrderForm
     {
-        private string FormSubmittedText = string.Empty;
-        private string SenderEmail = "petemonsterosrs@gmail.com";
-        private string SenderPassword = string.Empty;
-        private string RecipientEmail = "petemonsterosrs@gmail.com";
-        
-
         Order order = new();
         private string firstName = string.Empty;
         private string lastName = string.Empty;
@@ -20,29 +13,20 @@ namespace NoshhouseBlazor.Components.Pages
 
         public void SubmitForm()
         {
-            FormSubmittedText = $"{firstName}, {lastName}, {email}, {orderDesc}";
+            SendEmail();
         }
 
         public void SendEmail()
         {
             try
             {
-                using (MailMessage mail = new())
-                {
-                    mail.From = new MailAddress(SenderEmail);
-                    mail.To.Add(RecipientEmail);
-                    mail.Subject = "Test sending email from Blazor app 2";
-                    mail.Body = "<h2>Testing again</h2>";
-                    mail.IsBodyHtml = true;
+                string emailBody = $"{firstName}\r\n" +
+                                    $"{lastName}\r\n" +
+                                    $"{email}\r\n" +
+                                    $"{orderDesc}";
 
-                    using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
-                    {
-                        smtp.Credentials = new NetworkCredential(SenderEmail, SenderPassword);
-                        smtp.EnableSsl = true;
-                        smtp.Send(mail);
-                        
-                    }
-                }
+                var blah = new GmailServiceHelper();
+                blah.SendEmail("smathew808@gmail.com", "Testing", emailBody);
             }
             catch (Exception ex)
             {
@@ -50,5 +34,4 @@ namespace NoshhouseBlazor.Components.Pages
             }
         }
     }
-
 }
