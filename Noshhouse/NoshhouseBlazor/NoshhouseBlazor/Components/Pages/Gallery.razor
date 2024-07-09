@@ -1,8 +1,42 @@
 ﻿@page "/gallery"
-@rendermode InteractiveServer
 
 <h3>Gallery</h3>
 
-@code {
+<div class="container">
+    <div class="row">
+        @foreach (var image in Images)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@image.Url" class="card-img-top" alt="@image.Title">
+                    <div class="card-body">
+                        <h5 class="card-title">@image.Title</h5>
+                        <p class="card-text">@image.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 
+@code {
+    private List<ImageInfo> Images { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Images = new List<ImageInfo>
+        {
+            new ImageInfo { Url = "/images/image1.jpg", Title = "Image 1", Description = "Description for Image 1" },
+            new ImageInfo { Url = "/images/image2.jpg", Title = "Image 2", Description = "Description for Image 2" },
+            new ImageInfo { Url = "/images/image3.jpg", Title = "Image 3", Description = "Description for Image 3" },
+            // Add more images as needed
+        };
+    }
+
+    public class ImageInfo
+    {
+        public string Url { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+    }
 }

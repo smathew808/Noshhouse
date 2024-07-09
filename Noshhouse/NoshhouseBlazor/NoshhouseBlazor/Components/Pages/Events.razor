@@ -1,8 +1,94 @@
 ﻿@page "/events"
-@rendermode InteractiveServer
+@using System.Globalization
+@using System.Linq
 
-<h3>Events</h3>
+<h3>Calendar</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary mb-2" @onclick="PreviousMonth">Previous</button>
+        </div>
+        <div class="col text-center">
+            <h4>@CurrentMonth</h4>
+        </div>
+        <div class="col text-right">
+            <button class="btn btn-primary mb-2" @onclick="NextMonth">Next</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        @foreach (var day in DaysOfWeek)
+                        {
+                            <th>@day</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var week in CalendarWeeks)
+                    {
+                        <tr>
+                            @foreach (var day in week)
+                            {
+                                <td>@day</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 @code {
+    private DateTime CurrentDate = DateTime.Today;
+    private CultureInfo culture = CultureInfo.InvariantCulture;
 
+    private string[] DaysOfWeek => culture.DateTimeFormat.AbbreviatedDayNames;
+
+    private List<List<string>> CalendarWeeks => GetCalendarWeeks(CurrentDate);
+
+    private string CurrentMonth => CurrentDate.ToString("MMMM yyyy", culture);
+
+    private void NextMonth()
+    {
+        CurrentDate = CurrentDate.AddMonths(1);
+        StateHasChanged();
+    }
+
+    private void PreviousMonth()
+    {
+        CurrentDate = CurrentDate.AddMonths(-1);
+        StateHasChanged();
+    }
+
+    private List<List<string>> GetCalendarWeeks(DateTime date)
+    {
+        var firstDayOfMonth = new DateTime(date.Year, date.Month, 1);
+        var lastDayOfMonth = firstDayOfMonth.AddMonths(1).AddDays(-1);
+        var weeks = new List<List<string>>();
+        var currentWeek = new List<string>();
+
+        for (var day = firstDayOfMonth; day <= lastDayOfMonth; day = day.AddDays(1))
+        {
+            if (currentWeek.Count > 0 && day.DayOfWeek == culture.DateTimeFormat.FirstDayOfWeek)
+            {
+                weeks.Add(currentWeek);
+                currentWeek = new List<string>();
+            }
+
+            currentWeek.Add(day.Day.ToString());
+        }
+
+        if (currentWeek.Count > 0)
+        {
+            weeks.Add(currentWeek);
+        }
+
+        return weeks;
+    }
 }
