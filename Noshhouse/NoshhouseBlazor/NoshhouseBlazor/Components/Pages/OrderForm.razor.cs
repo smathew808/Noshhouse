@@ -1,5 +1,8 @@
-﻿using NoshhouseBlazor.Helpers;
+﻿using BlazorBootstrap;
+using Microsoft.AspNetCore.Components;
+using NoshhouseBlazor.Helpers;
 using NoshhouseBlazor.Models;
+
 
 namespace NoshhouseBlazor.Components.Pages
 {
@@ -10,6 +13,9 @@ namespace NoshhouseBlazor.Components.Pages
         private string lastName = string.Empty;
         private string email = string.Empty;
         private string orderDesc = string.Empty;
+
+        [Inject]
+        protected ToastService ToastService { get; set; } = default!;
 
         public void SubmitForm()
         {
@@ -25,12 +31,15 @@ namespace NoshhouseBlazor.Components.Pages
                                     $"{email}\r\n" +
                                     $"{orderDesc}";
 
-                var blah = new GmailServiceHelper();
-                blah.SendEmail("smathew808@gmail.com", "Testing", emailBody);
+                //var blah = new GmailServiceHelper();
+                //blah.SendEmail("smathew808@gmail.com", "Testing", emailBody);
+
+
+                ToastService.Notify(new(ToastType.Success, $"Order sent!"));
             }
             catch (Exception ex)
             {
-                throw;
+                ToastService.Notify(new(ToastType.Danger, $"Unable to send order. Please contact the site admin."));
             }
         }
     }

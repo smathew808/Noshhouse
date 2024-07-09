@@ -8,10 +8,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NoshhouseBlazor.Client\NoshhouseBlazor.Client.csproj" />
+    <PackageReference Include="Blazor.Bootstrap" Version="3.0.0-preview.1" />
     <PackageReference Include="Google.Apis.Gmail.v1" Version="1.68.0.3427" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.4" />
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.7.2" />
-    <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.7.2" />
   </ItemGroup>
 
 </Project>
