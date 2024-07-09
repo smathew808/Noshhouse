@@ -3,16 +3,21 @@
 <h3>Gallery</h3>
 
 <div class="container">
-    <div class="row">
+    <div class="column d-flex flex-column align-items-center justify-content-center">
         @foreach (var image in Images)
         {
             <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="@image.Url" class="card-img-top" alt="@image.Title">
-                    <div class="card-body">
-                        <h5 class="card-title">@image.Title</h5>
-                        <p class="card-text">@image.Description</p>
-                    </div>
+                <div class="card h-100">
+                    @if (image.IsLoaded)
+                    {
+                        <img src="@image.Url" class="card-img-top" alt="..." style="max-height: 200px;">
+                    }
+                    else
+                    {
+                        <div class="card-body">
+                            <Spinner Color="SpinnerColor.Primary" />
+                        </div>
+                    }
                 </div>
             </div>
         }
@@ -20,23 +25,46 @@
 </div>
 
 @code {
-    private List<ImageInfo> Images { get; set; }
+    private List<ImageModel> Images { get; set; }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        Images = new List<ImageInfo>
+        // Initialize the image list with placeholders
+        Images = new List<ImageModel>
         {
-            new ImageInfo { Url = "/images/image1.jpg", Title = "Image 1", Description = "Description for Image 1" },
-            new ImageInfo { Url = "/images/image2.jpg", Title = "Image 2", Description = "Description for Image 2" },
-            new ImageInfo { Url = "/images/image3.jpg", Title = "Image 3", Description = "Description for Image 3" },
+            new ImageModel { Url = "1.jpg", IsLoaded = false },
+            new ImageModel { Url = "2.jpg", IsLoaded = false },
+            new ImageModel { Url = "3.jpg", IsLoaded = false },
             // Add more images as needed
         };
     }
 
-    public class ImageInfo
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await LoadImagesAsync();
+        }
+    }
+
+    private async Task LoadImagesAsync()
+    {
+        // Simulate a delay for loading images
+        await Task.Delay(2000);
+
+        // Mark images as loaded
+        foreach (var image in Images)
+        {
+            image.IsLoaded = true;
+        }
+
+        // Notify Blazor to re-render the component
+        StateHasChanged();
+    }
+
+    private class ImageModel
     {
         public string Url { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public bool IsLoaded { get; set; }
     }
 }

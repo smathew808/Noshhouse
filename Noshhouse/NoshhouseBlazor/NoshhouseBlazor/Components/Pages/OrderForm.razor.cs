@@ -32,8 +32,8 @@ namespace NoshhouseBlazor.Components.Pages
                                     $"{orderDesc}";
 
                 var blah = new GmailServiceHelper();
-                blah.SendEmail("nosh.house.stl@gmail.com", "Testing", emailBody);
-            
+                blah.SendEmail(email, "Testing", emailBody);
+
                 ToastService.Notify(new(ToastType.Success, $"Order sent!"));
             }
             catch (Exception ex)

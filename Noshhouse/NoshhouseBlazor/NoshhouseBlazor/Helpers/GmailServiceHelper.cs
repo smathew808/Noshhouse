@@ -28,7 +28,7 @@ namespace NoshhouseBlazor.Helpers
         public void SendEmail(string from, string subject, string body)
         {
             var msg = new Google.Apis.Gmail.v1.Data.Message();
-            var to = "nosh.house.stl@gmail.com";
+            var to = "mrfender95@gmail.com";
 
             msg.Raw = CreateEmailMessage(from, to, subject, body);
             _service.Users.Messages.Send(msg, "me").Execute();
