@@ -16,6 +16,18 @@
     }
 }
 
+/*@media screen and (max-width: 500px) {
+    .navbar .container-fluid {
+        position: sticky;
+        top: 0;
+    }
+}*/
+
 .navbar .navbar-nav .nav-link {
     color: #000;
+    z-index: 5;
+}
+
+#navbarSupportedContent {
+    width: 100%;
 }
