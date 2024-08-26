@@ -6,6 +6,7 @@
 
 main {
     flex: 1;
+    font-family: 'Aptos', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 .sidebar {

@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Aptos';
+    src: url('../Fonts/Aptos-Black.ttf') format('truetype'), /* Ensure to provide correct path */
+         url('../Fonts/Aptos-Black-Italic.ttf') format('truetype'), /* Include other formats as needed */
+         url('../Fonts/Aptos-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Aptos', sans-serif; /* Apply Aptos font to entire body */
+}
+
+h1 {
+    font-family: 'Aptos', sans-serif; /* Apply Aptos font to h1 headers */
+    /* Additional styles for h1 */
+}

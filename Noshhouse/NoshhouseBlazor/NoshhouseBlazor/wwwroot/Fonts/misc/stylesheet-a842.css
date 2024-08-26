@@ -1,0 +1,14 @@
+@font-face {
+font-family: 'Stratounlinked';
+src: url('strato-unlinked-webfont.eot');
+src: local('☺'), url('strato-unlinked-webfont.eot?#iefix') format('embedded-opentype'),url('strato-unlinked-webfont.woff') format('woff'),url('strato-unlinked-webfont.ttf') format('truetype'),url('strato-unlinked-webfont.svg#Stratounlinked') format('svg');
+font-weight: normal;
+font-style: normal;}
+
+@font-face {
+font-family: 'Stratolinked';
+src: url('strato-linked-webfont.eot');
+src: local('☺'), url('strato-linked-webfont.eot?#iefix') format('embedded-opentype'),url('strato-linked-webfont.woff') format('woff'),url('strato-linked-webfont.ttf') format('truetype'),url('strato-linked-webfont.svg#Stratolinked') format('svg');
+font-weight: normal;
+font-style: normal;}
+
